@@ -1,0 +1,10 @@
+name: Build B860H Firmware
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          git clone https://github.com/ophub/amlogic-s9xxx-openwrt
+          cd amlogic-s9xxx-openwrt
+          sudo ./make -b s905x -k 6.6.92 -p "luci luci-compat luci-theme-bootstrap dropbear"
